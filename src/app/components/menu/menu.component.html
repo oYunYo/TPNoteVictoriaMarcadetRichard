@@ -1,0 +1,21 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white container-fluid">
+	<div class="container">
+	<a class="navbar-brand" [routerLink]="['/']" [routerLinkActive]="'active'"><img src="assets/img/logo.svg" class="logo" alt="logo de l'Exam"></a>
+	<button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="isCollapsed">
+		<ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+			<a class="nav-link" [routerLink]="['garanties']" [routerLinkActive]="'active'">Nos garanties</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" [routerLink]="['besoin-d-aide']" [routerLinkActive]="'active'">Besoin d'aide ?</a>
+		</li>
+		</ul>
+		<div class="m-2">
+			<a class="btn btn-danger text-white my-2 my-lg-0" href="#" role="button">CONTACTEZ-NOUS</a> 
+		</div>
+	</div>
+</div>
+</nav> 
