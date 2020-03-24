@@ -1,0 +1,21 @@
+<div class="container">
+    <ng-container *ngIf="isLoading">
+      Chargement en cours
+    </ng-container>
+    <ng-container *ngIf="!isLoading && !computer">
+      Page introuvable
+    </ng-container>
+    
+    <ng-container *ngIf="!isLoading">
+      <h2>Le détail de l'ordinateur n° {{ computer.id }}</h2>
+      <label>Modèle : {{ computer.modele }}</label> <br>
+      <label>Marque : {{ computer.marque }}</label><br>
+      <label>Type : {{ computer.type }}</label><br>
+      <label>Catégorie : {{ computer.category }}</label><br>
+      <label>Prix d'achat : {{ computer.prixAchat }} €</label><br>
+      <label>Prix d'achat : {{ computer.prixVente }} €</label><br>
+      <label>Marge : {{ round(computer.prixVente - computer.prixAchat,2) }} €</label><br>
+      <label>Date d'entrée en stock : {{ computer.dateEntreStock|date: 'd/MM/y' }}</label>
+    </ng-container>
+    
+</div>

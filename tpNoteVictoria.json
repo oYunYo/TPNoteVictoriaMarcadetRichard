@@ -1,0 +1,24 @@
+{
+  "computers": [
+    {
+      "id": 1,
+      "modele": "Latitude 3500 - 15.6",
+      "marque": "Dell",
+      "type": "Portable",
+      "category": "Bureautique",
+      "prixAchat": 120.88,
+      "prixVente": 300.1,
+      "dateEntreStock": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "modele": "MacBook Pro Touch Bar 16\" Retina",
+      "marque": "Apple",
+      "type": "Portable",
+      "category": "Bureautique",
+      "prixAchat": 999.99,
+      "prixVente": 5839.99,
+      "dateEntreStock": "2020-03-24T13:09:47.037Z",
+      "id": 2
+    }
+  ]
+}

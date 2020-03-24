@@ -1,1 +1,53 @@
-<p>home works!</p>
+<ng-container *ngIf="isLoading">
+    Chargement en cours
+</ng-container>
+
+<ng-container *ngIf="!isLoading">
+<div class="container mt-5">
+<h1>{{ computers.length }} ordinateur(s) en stock</h1>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Modèle</th>
+        <th scope="col">Marque</th>
+        <th scope="col">Type</th>
+        <th scope="col">Catégorie</th>
+        <th scope="col">Prix d'achat</th>
+        <th scope="col">Prix de vente</th>
+        <th scope="col">Marge</th>
+        <th scope="col">Entrée dans stock</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="lineComputer" *ngFor="let computer of computers">
+        <th scope="row">{{ computer.id }}</th>
+        <td>{{ computer.modele }}</td>
+        <td>{{ computer.marque }}</td>
+        <td>{{ computer.type }}</td>
+        <td>{{ computer.category }}</td> 
+        <td>{{ computer.prixAchat }} €</td> 
+        <td>{{ computer.prixVente }} €</td>
+        <td>{{ round(computer.prixVente - computer.prixAchat,2) }} €</td>
+        <td>{{ computer.dateEntreStock|date: "d/MM/y" }}</td>
+        <td>
+        <a class="testDelete" (click)="deleteComputer(computer.id)">
+          <img src="/assets/img/delete.png">
+        </a>
+        <a [routerLink]="['/computer/edit', computer.id]">
+          <img  src="/assets/img/edit.png">
+        </a>
+        <a [routerLink]="['/computer', computer.id]">   
+            <img  src="/assets/img/detail.png">
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    
+    <button type="button" id="addComputerLink" class="btn text-white my-2 my-lg-0" [routerLink]="['/computer/add']">Ajouter un ordinateur</button>
+    </div>
+</ng-container>
+
+

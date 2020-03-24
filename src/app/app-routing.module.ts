@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { AddComputerComponent } from './components/add-computer/add-computer.component';
+import { ComputerDetailComponent } from './components/computer-detail/computer-detail.component';
+import { EditComputerComponent } from './components/edit-computer/edit-computer.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  // {path: 'planets', component: PlanetsComponent},
-  // {path: 'planets/add', component: AddPlanetComponent},
-  // {path: 'planets/:id', component: PlanetDetailComponent},
-  // {path: 'planets/edit/:id', component: EditPlanetComponent},
-  // {path: 'vehicles', component: VehiculsComponent},
-  // {path: 'vehicles/add', component: AddVehicleComponent},
-  // {path: 'vehicles/edit/:id', component: EditVehicleComponent}
-];
+  {path: '', redirectTo : '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'computer/add', component: AddComputerComponent},
+  {path: 'computer/:id', component: ComputerDetailComponent},
+  {path: 'computer/edit/:id', component: EditComputerComponent},
+  {path: '**', component: NotFoundComponent}
+]; 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -9,12 +9,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CollapseModule } from 'ngx-bootstrap';
 import { HomeComponent } from './components/home/home.component';
+import { AddComputerComponent } from './components/add-computer/add-computer.component';
+import { ComputerDetailComponent } from './components/computer-detail/computer-detail.component';
+import { EditComputerComponent } from './components/edit-computer/edit-computer.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    AddComputerComponent,
+    ComputerDetailComponent,
+    EditComputerComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

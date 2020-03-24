@@ -1,0 +1,82 @@
+<ng-container *ngIf="isLoading">
+    Chargement en cours
+</ng-container>
+
+<ng-container *ngIf="!isLoading">
+<div id="formulaireEdit" class="mt-5 container">
+    <h2>Modifier un ordinateur</h2>
+    <form #formComputerValidation="ngForm" (ngSubmit)="updateComputer()">
+     
+      <div class="form-group">
+        <label for="modeleTest">Modèle</label>
+        <input type="text" id="modeleTest" class="form-control" required name="modele" #modele="ngModel"
+              [(ngModel)]="computerToUpdate.modele">
+        <div *ngIf="modele.touched && !modele.valid" class="error">
+          <p class="text-warning">Erreur ce n'est pas un modèle</p>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Marque</label> <br>
+        <!-- {{marqueDisponible|json}} -->
+        <ng-container *ngFor="let marque of marqueDisponible">
+            <div>
+                <input type="radio" id="inputRadio-{{ marque }}" #marqueValidation="ngModel" name="marqueValidation" [value]="marque" 
+                required [(ngModel)]="computerToUpdate.marque">  
+                <label for="inputRadio-{{ marque }}">{{ marque }}</label>
+            </div>
+        </ng-container>
+        <div *ngIf="formComputerValidation.controls.marque?.touched && !formComputerValidation.controls.marque?.valid" class="error">
+          <p class="text-warning">Erreur ce n'est pas une marque</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Type</label> <br>
+        <select #typeValidation="ngModel" name="typeValidation" required [(ngModel)]="computerToUpdate.type" class="form-control">
+          <option></option>
+          <option *ngFor="let type of typeDisponible">
+            {{ type }}
+          </option>
+        </select>
+        <div *ngIf="formComputerValidation.controls.type?.touched && !formComputerValidation.controls.type?.valid" class="error">
+            <p class="text-warning">Erreur ce n'est pas un type</p>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label>Catégorie</label> <br>
+        <ng-container *ngFor="let category of categoryDisponible">
+            <div>
+                <input type="radio" id="inputRadio-{{ category }}" #categoryValidation="ngModel" name="categoryValidation" [value]="category" 
+                required [(ngModel)]="computerToUpdate.category">  
+                <label for="inputRadio-{{ category }}">{{ category }}</label>
+            </div>
+        </ng-container>
+        <div *ngIf="formComputerValidation.controls.category?.touched && !formComputerValidation.controls.category?.valid" class="error">
+          <p class="text-warning">Erreur ce n'est pas une catégorie</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prixAchatTest">Prix d'achat</label>
+        <input type="number" id="prixAchatTest" class="form-control" required name="prixAchat" #prixAchat="ngModel"
+              [(ngModel)]="computerToUpdate.prixAchat">
+        <div *ngIf="prixAchat.touched && !prixAchat.valid" class="error">
+          <p class="text-warning">Erreur ce n'est pas un prix d'achat</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prixVenteTest">Prix de vente</label>
+        <input type="number" id="prixVenteTest" class="form-control" required name="prixVente" #prixVente="ngModel"
+              [(ngModel)]="computerToUpdate.prixVente">
+        <div *ngIf="prixVente.touched && !prixVente.valid" class="error">
+          <p class="text-warning">Erreur ce n'est pas un prix de vente</p>
+        </div>
+      </div>
+  
+      <button [disabled]="!formComputerValidation.valid" id="submitFormComputer" class="btn text-white" type="submit">Enregistrer l'ordinateur</button>
+    </form>
+  </div>
+</ng-container>
