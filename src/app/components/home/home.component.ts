@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ComputerService } from 'src/app/services/computer.service';
 import { Computer } from 'src/app/models/computer';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,9 @@ import { Computer } from 'src/app/models/computer';
 export class HomeComponent implements OnInit {
   computers: Computer[];
   isLoading: boolean;
+  modalRef: BsModalRef;
 
-  constructor(private computerService: ComputerService) { }
+  constructor(private computerService: ComputerService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -38,5 +40,16 @@ export class HomeComponent implements OnInit {
     return roundedTempNumber / factor;
 }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
 
+  confirmDeleteComputer(id) {
+    this.deleteComputer(id);
+    this.modalRef.hide();
+  }
+
+  declineDeleteComputer() {
+    this.modalRef.hide();
+  }
 }

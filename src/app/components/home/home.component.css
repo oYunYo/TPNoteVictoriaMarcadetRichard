@@ -1,16 +1,22 @@
 img {
     height: 50px;
-  }
+}
   
-  #addComputerLink {
-    background-color: #0096c9;
-  }
-  
-  thead {
-    background-color: #0A357E;
-    color: white;
-  }
+#addComputerLink {
+  background-color: #0096c9;
+}
 
-  h1 {
-      color: #0A357E;
-  }
+thead {
+  background-color: #0A357E;
+  color: white;
+}
+
+h1 {
+    color: #0A357E;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0a357e;
+  border-color: #0a357e;
+}

@@ -13,6 +13,7 @@ import { AddComputerComponent } from './components/add-computer/add-computer.com
 import { ComputerDetailComponent } from './components/computer-detail/computer-detail.component';
 import { EditComputerComponent } from './components/edit-computer/edit-computer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    ModalModule.forRoot()
 
   ],
   providers: [],

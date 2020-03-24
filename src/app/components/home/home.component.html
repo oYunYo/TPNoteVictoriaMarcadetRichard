@@ -32,9 +32,16 @@
         <td>{{ round(computer.prixVente - computer.prixAchat,2) }} €</td>
         <td>{{ computer.dateEntreStock|date: "d/MM/y" }}</td>
         <td>
-        <a class="testDelete" (click)="deleteComputer(computer.id)">
+        <a class="testDelete" (click)="openModal(template)">
           <img src="/assets/img/delete.png">
         </a>
+        <ng-template #template>
+          <div class="modal-body text-center">
+            <p>Êtes-vous sûr de vouloir supprimer cet ordinateur?</p>
+            <button type="button" class="btn btn-default" (click)= "confirmDeleteComputer(computer.id)" >Oui</button>
+            <button type="button" class="btn btn-primary" (click)="declineDeleteComputer()">Non</button>
+          </div>
+        </ng-template>
         <a [routerLink]="['/computer/edit', computer.id]">
           <img  src="/assets/img/edit.png">
         </a>
